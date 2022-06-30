@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+interface MyComponentProps {
+  imgSrc: string;
+}
 
 function App() {
   return (
@@ -8,7 +12,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <MyComponent />
+          <MyComponent imgSrc="https://www.nasa.gov/sites/default/files/thumbnails/image/capstone_liftoff.jpg"/>
         </p>
         <a
           className="App-link"
@@ -18,13 +22,45 @@ function App() {
         >
           Learn React
         </a>
+        <Counter/>
       </header>
     </div>
   );
 }
 
-class MyComponent extends React.Component {
-  constructor(props: any) {
+function Counter() {
+  const [count, setCount] = useState(() => {
+    const saved = localStorage.getItem('count');
+    if (saved == null)
+      return 0;
+    const inititalValue = JSON.parse(saved!);
+    return Number(inititalValue);
+  });
+
+
+  useEffect(
+    () => {
+      return function cleanup() {
+        localStorage.setItem("count", JSON.stringify(count));
+      }
+    }
+  )
+
+  return(
+    <div className='Counter'>
+      <button className='Counter-Button' onClick={() => setCount(count + 1)}>
+        Click Me!
+      </button>
+      <p>
+        The button has been clicked {count} times
+      </p>
+    </div>
+  )
+}
+
+
+class MyComponent extends React.Component<MyComponentProps, any> {
+  constructor(props: MyComponentProps) {
     super(props);
     this.state = {
 
@@ -37,7 +73,7 @@ class MyComponent extends React.Component {
         <h1>Title</h1>
         <p>Paragraf 1</p>
         <p>Pargraf 2</p>
-        <img className='Component-image' src="https://www.nasa.gov/sites/default/files/thumbnails/image/capstone_liftoff.jpg"></img>
+        <img className='Component-image' src={this.props.imgSrc}></img>
       </div>
     );
   }

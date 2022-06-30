@@ -33,6 +33,16 @@
   height: 50%;
 }
 
+.Counter {
+  border-top: 50px;
+  padding: 20px;
+}
+
+.Counter-Button {
+  border-radius: 2px;
+  background-color: lightblue;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
