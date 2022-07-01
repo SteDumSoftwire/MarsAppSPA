@@ -1,11 +1,12 @@
-import './App.css';
+import './App.scss';
 import { useEffect, useState } from 'react';
+import { Button } from '@mui/material';
 
 //
 function CounterPage() {
     return (
         <div className="App">
-          <header className="App-header">
+          <header>
             <Counter />
           </header>
         </div>
@@ -15,10 +16,8 @@ function CounterPage() {
 function Counter() {
     const [count, setCount] = useState(() => {
       const saved = localStorage.getItem('count');
-      if (saved == null)
-        return 0;
-      const inititalValue = JSON.parse(saved!);
-      return Number(inititalValue);
+      const initalValue = saved == null ? 0 : JSON.parse(saved);
+      return Number(initalValue);
     });
   
   
@@ -32,9 +31,9 @@ function Counter() {
   
     return(
       <div className='Counter'>
-        <button className='Counter-Button' onClick={() => setCount(count + 1)}>
+        <Button variant='outlined' disableElevation color='success' size='large' onClick={() => setCount(count + 1)}>
           Click Me!
-        </button>
+        </Button>
         <p>
           The button has been clicked {count} times
         </p>

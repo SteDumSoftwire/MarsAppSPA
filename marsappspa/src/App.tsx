@@ -9,7 +9,6 @@ import ComponentPage from "./ComponentPage";
 import CounterPage from "./CounterPage";
 import HomePage from "./HomePage";
 
-//
 function App() {
   return (
     <Router>
