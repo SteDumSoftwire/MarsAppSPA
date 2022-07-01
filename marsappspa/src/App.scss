@@ -1,7 +1,4 @@
-$bg-color: #282c34;
-$link-color: #61dafb;
-$button-bg-color: lightblue;
-$text-color: white;
+@use 'vars';
 
 @keyframes App-logo-spin {
     from {
@@ -15,17 +12,17 @@ $text-color: white;
 .App {
     text-align: center;
     header {
-        background-color: $bg-color;
+        background-color: vars.$bg-color;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         font-size: calc(10px + 2vmin);
-        color: $text-color;
+        color: vars.$text-color;
     }
     link {
-        color: $link-color;
+        color: vars.$link-color;
     }
 }
 
@@ -53,5 +50,5 @@ $text-color: white;
 
 .Counter-Button {
     border-radius: 2px;
-    background-color: $button-bg-color;
+    background-color: vars.$button-bg-color;
 }

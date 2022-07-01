@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import './App.scss';
 
 interface MyComponentProps {
@@ -8,6 +9,7 @@ interface MyComponentProps {
 function ComponentPage() {
     return (
       <div className="App">
+        <Outlet />
         <header>
             <MyComponent imgSrc="https://www.nasa.gov/sites/default/files/thumbnails/image/capstone_liftoff.jpg">
               <p>Paragraf 1</p>
