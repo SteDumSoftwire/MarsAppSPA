@@ -9,6 +9,7 @@ import ComponentPage from "./ComponentPage";
 import CounterPage from "./CounterPage";
 import HomePage from "./HomePage";
 
+//
 function App() {
   return (
     <Router>
@@ -29,7 +30,7 @@ function App() {
         </ul>
 
         <hr />
-        
+
         <Routes>
           <Route path="/" element={<HomePage />}/>
           <Route path="/counter" element={<CounterPage />}/>
@@ -42,3 +43,4 @@ function App() {
 }
 
 export default App;
+

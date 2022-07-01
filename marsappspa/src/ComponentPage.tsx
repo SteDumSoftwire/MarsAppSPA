@@ -3,8 +3,8 @@ import './App.css';
 interface MyComponentProps {
     imgSrc: string;
 }
-
-function ComponentPage() {
+//
+export function ComponentPage() {
     return (
       <div className="App">
         <header className="App-header">
@@ -14,7 +14,7 @@ function ComponentPage() {
     );
   }
 
-function MyComponent(props: MyComponentProps) {
+export function MyComponent(props: MyComponentProps) {
     return (
       <div className='Component'>
         <h1>Title</h1>
