@@ -1,26 +1,31 @@
-import './App.css';
+import { Outlet } from 'react-router-dom';
+import './App.scss';
 
 interface MyComponentProps {
     imgSrc: string;
+    children: Array<JSX.Element>;
 }
 //
-export function ComponentPage() {
+function ComponentPage() {
     return (
       <div className="App">
-        <header className="App-header">
-            <MyComponent imgSrc="https://www.nasa.gov/sites/default/files/thumbnails/image/capstone_liftoff.jpg"/>
+        <Outlet />
+        <header>
+            <MyComponent imgSrc="https://www.nasa.gov/sites/default/files/thumbnails/image/capstone_liftoff.jpg">
+              <p>Paragraf 1</p>
+              <p>Pargraf 2</p>
+            </MyComponent>
         </header>
       </div>
     );
   }
 
-export function MyComponent(props: MyComponentProps) {
+function MyComponent(props: MyComponentProps) {
     return (
       <div className='Component'>
         <h1>Title</h1>
-        <p>Paragraf 1</p>
-        <p>Pargraf 2</p>
-        <img className='Component-image' src={props.imgSrc}></img>
+        {props.children}
+        <img src={props.imgSrc}></img>
       </div>
     );
 }
