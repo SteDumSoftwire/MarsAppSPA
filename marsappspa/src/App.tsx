@@ -29,7 +29,7 @@ function App() {
         </ul>
 
         <hr />
-        
+
         <Routes>
           <Route path="/" element={<HomePage />}/>
           <Route path="/counter" element={<CounterPage />}/>
