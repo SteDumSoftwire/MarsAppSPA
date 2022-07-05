@@ -1,15 +1,17 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
+import { Button } from '@mui/material'
 
 const RootContext = createContext({
     count: 0,
     setCount: (val: number) => {}
   });
 
+//
 export function ComplexTreePage() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header>
           <Component_1 />
         </header>
       </div>
@@ -48,9 +50,9 @@ function Component_1() {
   function Component_2() {
     const { count, setCount} = useContext(RootContext);
     return (
-        <button className='Counter-Button' onClick={() => setCount(count + 1)}>
+        <Button variant='outlined' disableElevation color='success' size='large' onClick={() => setCount(count + 1)}>
           Click Me!
-        </button>
+        </Button>
     )
   }
   
