@@ -52,3 +52,32 @@
     border-radius: 2px;
     background-color: vars.$button-bg-color;
 }
+
+.Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-width: 300px;
+}
+
+.ContainerItem {
+    margin: 10px;
+    flex-shrink: 2;
+    max-height: 400px;
+}
+
+.SelectField {
+    color: white !important;
+    border-color: white !important;
+}
+
+.SubmitButton {
+    &:disabled { 
+        border-color: white !important;
+        color: white !important;
+    }
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: white !important;
+}
